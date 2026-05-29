@@ -17,9 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="chat.Domain\DTOS\" />
     <Folder Include="chat.Tests\" />
-    <Folder Include="chat.Infstructure\" />
   </ItemGroup>
 
 </Project>
