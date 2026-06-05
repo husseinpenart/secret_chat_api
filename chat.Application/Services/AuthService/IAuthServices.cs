@@ -1,6 +1,6 @@
 ﻿using secre_chat_api.chat.Domain.DTOS.UserDtos;
 
-namespace secre_chat_api.chat.Infstructure.Services.AuthService
+namespace secre_chat_api.chat.Application.Services.AuthService
 {
     public interface IAuthServices
     {

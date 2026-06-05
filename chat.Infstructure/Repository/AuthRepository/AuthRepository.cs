@@ -18,9 +18,9 @@ namespace secre_chat_api.chat.Infstructure.Repository.AuthRepository
             await _context.SaveChangesAsync();
         }
         //GewtUserByPhoneAsync
-        public async Task<UserEntity?> GewtUserByPhoneAsync(string phone)
+        public async Task<UserEntity?> GetUserByPhoneAsync(string phone)
         {
-            return await _context.userEntities.FirstOrDefaultAsync(e->e.phoneNumber = phone);
+            return await _context.userEntities.FirstOrDefaultAsync(e=>  e.phoneNumber == phone);
         }
 
         //UpdateUserAsync

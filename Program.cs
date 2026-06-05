@@ -1,5 +1,8 @@
+using FluentValidation;
 using Microsoft.EntityFrameworkCore;
+using secre_chat_api.chat.Application.Extenstions;
 using secre_chat_api.chat.Application.MiddleWares;
+using secre_chat_api.chat.Application.Validator;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +12,9 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+// fluent validator 
+builder.Services.AddApplicationServices();
+// fluent validator 
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
 builder.Services.AddDbContext<AppDbContext>(options =>
