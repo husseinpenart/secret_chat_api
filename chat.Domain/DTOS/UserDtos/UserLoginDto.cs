@@ -11,6 +11,6 @@ namespace secre_chat_api.chat.Domain.DTOS.UserDtos
         public string phoneNumber { get; set; }
         [Required(ErrorMessage = MessageDictionary.Uservalidation.passwordRequirement)]
         [DefaultValue("12345678")]
-        public string password { get; set; }
+        public string Password { get; set; }
     }
 }

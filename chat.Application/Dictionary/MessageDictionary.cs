@@ -20,7 +20,15 @@
             public const string UserExsitence = "شما از قبل ثبت نام کرده اید  لطفا وارد شوید";
             public static string SuccessMessage(string label) => $"کاربر با نام  {label} با موفقیت ثبت شد ";
             public static string ExceptionMessage(string label) => $"خطای ثبت کاربر  : {label}";
+            // Inside MessageDictionary.Uservalidation
+            public static string LockedDownMessage(int minutesLeft) =>
+                $"اکانت شما قفل شد. لطفا بعد از {minutesLeft} دقیقه {(minutesLeft > 1 ? "s" : "")} دوباره تلاش کنید.";
 
+        }
+
+        public static class ErrorExceptions
+        {
+            public const string StatusCode400Error = "unHandled Input Error";
         }
     }
 }

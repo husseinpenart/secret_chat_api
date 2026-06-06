@@ -37,7 +37,7 @@ namespace secre_chat_api.chat.Application.Services.AuthService
                     IdentityName = dto.IdentityName,
                     phoneNumber = dto.phoneNumber,
                     userName = dto.userName,
-                    Password = dto.Password,
+                    Password = BCrypt.Net.BCrypt.HashPassword(dto.Password),
                     RegistredDate = dto.RegistredDate
 
                 };
@@ -55,6 +55,38 @@ namespace secre_chat_api.chat.Application.Services.AuthService
                 return (false, MessageDictionary.Uservalidation.ExceptionMessage(ex.Message), null);
             }
         }
+        /// <summary>
+          // Login section
+        public async Task<(bool success, string message, string Token)> LoginAsync(UserLoginDto dto)
+        {
+            try
+            {
+                var user = await _authRepository.GetUserByPhoneAsync(dto.phoneNumber);
 
+                if (user != null) return (false, MessageDictionary.Uservalidation.AllfieldRequirement, null);
+
+                ///Check if locked out
+                if (user.LockoutUntil.HasValue && user.LockoutUntil.Value > DateTime.UtcNow) // Changed < to >
+                {
+                    // Math.Ceiling returns double, we cast to int for the message
+                    var minutesLeft = (int)Math.Ceiling((user.LockoutUntil.Value - DateTime.UtcNow).TotalMinutes);
+
+                    // Pass it as an int (or .ToString() if your method strictly takes string)
+                    return (false, MessageDictionary.Uservalidation.LockedDownMessage(minutesLeft), null);
+                }
+
+                if(BCrypt.Net.BCrypt.Verify(dto.Password , user.Password))
+                {
+                    user.FaildLoginAttempts = 0;
+                    user.LockoutUntil = null;
+                    await _authRepository.UpdateUserAsync(user);
+                    var tokenHandler = new JwtS
+                }
+
+
+            }
+            }
+
+        /// </summary>
     }
 }
