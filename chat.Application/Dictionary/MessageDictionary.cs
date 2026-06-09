@@ -23,12 +23,16 @@
             // Inside MessageDictionary.Uservalidation
             public static string LockedDownMessage(int minutesLeft) =>
                 $"اکانت شما قفل شد. لطفا بعد از {minutesLeft} دقیقه {(minutesLeft > 1 ? "s" : "")} دوباره تلاش کنید.";
-
+            public static string LoginSuccess(string label) => $"{label}  خوش آمدید";
+            public static string TooManyAttempt = "بیش از حد تلاش غیر مجاز داشتید 15 دقیقه دیگر تلاش کنید";
+            public static string LockedAttemptLeft(int attemptsLeft) =>
+               $" {attemptsLeft}تلاش باقی مانده !  {(attemptsLeft > 1 ? "s" : "")} شماره تماس یا پسور شما اشتباه است   .";
         }
 
         public static class ErrorExceptions
         {
             public const string StatusCode400Error = "unHandled Input Error";
+            public static  string LoginFailed(string MessageException) => $"Error login in {MessageException}";
         }
     }
 }

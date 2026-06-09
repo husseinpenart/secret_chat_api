@@ -14,20 +14,20 @@ namespace secre_chat_api.chat.Infstructure.Repository.AuthRepository
         // Add user to by async
         public async Task AddUserAsync(UserEntity user)
         {
-            await _context.userEntities.AddAsync(user);
+            await _context.Users.AddAsync(user);
             await _context.SaveChangesAsync();
         }
         //GewtUserByPhoneAsync
         public async Task<UserEntity?> GetUserByPhoneAsync(string phone)
         {
-            return await _context.userEntities.FirstOrDefaultAsync(e=>  e.phoneNumber == phone);
+            return await _context.Users.FirstOrDefaultAsync(e => e.PhoneNumber == phone);
         }
 
         //UpdateUserAsync
 
         public async Task UpdateUserAsync(UserEntity user)
         {
-            _context.userEntities.Update(user);
+            _context.Users.Update(user);
             await _context.SaveChangesAsync();
         }
     }

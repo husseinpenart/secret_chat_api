@@ -1,6 +1,4 @@
 ﻿using FluentValidation;
-using FluentValidation.Results;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using secre_chat_api.chat.Application.Dictionary;
 using secre_chat_api.chat.Application.Extenstions;
@@ -15,10 +13,12 @@ namespace secre_chat_api.chat.API.Controllers.AuthController
     {
         private readonly IAuthServices _authServices;
         private readonly IValidator<UserRegisterDto> _validator;
-        public AuthController(IAuthServices authServices, IValidator<UserRegisterDto> validator)
+        private readonly IValidator<UserLoginDto> _loginValidator;
+        public AuthController(IAuthServices authServices, IValidator<UserRegisterDto> validator, IValidator<UserLoginDto> loginValidator)
         {
             _authServices = authServices;
             _validator = validator;
+            _loginValidator = loginValidator;
         }
 
         [HttpPost("register")]
@@ -68,6 +68,51 @@ namespace secre_chat_api.chat.API.Controllers.AuthController
                 });
 
         }
+        /// login controller
+        [HttpPost("login")]
+        public async Task<IActionResult> LoginAsync([FromBody] UserLoginDto dto)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(
+                    new ApiResponseExtention<UserLoginDto>
+                    {
+                        Success = false,
+                        StatusCode = StatusCodes.Status400BadRequest,
+                        Message = MessageDictionary.ErrorExceptions.StatusCode400Error,
+                        Data = null
+                    }
+                );
+            /// <summary>
+            /// Fluent Validaotion called in this part
+            /// </summary>
+            var validationResult = await _loginValidator.ValidateAsync(dto);
+            if (!validationResult.IsValid)
+            {
+                return BadRequest(validationResult.ToCustomErrorResponse<UserLoginDto>());
+            }
+            ///    /// <summary>
+            /// Fluent Validaotion called in this part
+            /// </summary>
 
+            var result = await _authServices.LoginAsync(dto);
+            if (!result.success) return BadRequest(
+               new ApiResponseExtention<string>
+
+               {
+                   Success = false,
+                   StatusCode = StatusCodes.Status400BadRequest,
+                   Message = result.message,
+                   Data = null,
+               }
+               );
+            return Ok(
+                new ApiResponseExtention<string>
+                {
+                    Success = true,
+                    StatusCode = StatusCodes.Status200OK,
+                    Message = result.message,
+                    Data = result.Token,
+                });
+        }
     }
 }

@@ -1,8 +1,11 @@
 using FluentValidation;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using secre_chat_api.chat.Application.Extenstions;
 using secre_chat_api.chat.Application.MiddleWares;
 using secre_chat_api.chat.Application.Validator;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,10 +16,33 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddSecretChatServices();
+builder.Services.AddSwaggerGenWithJwt();
 // fluent validator 
 builder.Services.AddApplicationServices();
 // fluent validator 
+/// jwt settings 
+var jwtSettings = builder.Configuration.GetSection("Jwt");
+var key = Encoding.UTF8.GetBytes(jwtSettings["Key"]);
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+}).AddJwtBearer(option =>
+{
+    option.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = jwtSettings["Issuer"],
+        ValidAudience = jwtSettings["Audience"],
+        IssuerSigningKey = new SymmetricSecurityKey(key)
+    };
+});
+
+/// jwt settings 
 
 builder.Services.AddDbContext<AppDbContext>(options =>
 {

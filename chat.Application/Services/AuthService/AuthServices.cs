@@ -1,9 +1,11 @@
-﻿using secre_chat_api.chat.Application.Dictionary;
+﻿using Microsoft.IdentityModel.Tokens;
+using secre_chat_api.chat.Application.Dictionary;
 using secre_chat_api.chat.Application.MiddleWares;
 using secre_chat_api.chat.Domain.DTOS.UserDtos;
 using secre_chat_api.chat.Domain.Entities;
-using secre_chat_api.chat.Infstructure.Repository.AuthRepository;
-using System.Security.Cryptography.X509Certificates;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
 
 namespace secre_chat_api.chat.Application.Services.AuthService
 {
@@ -33,12 +35,12 @@ namespace secre_chat_api.chat.Application.Services.AuthService
                 if (ExistUser != null) return (false, MessageDictionary.Uservalidation.UserExsitence, null);
                 var newUser = new UserEntity
                 {
-                    userId = Guid.NewGuid(),
+                    UserId = Guid.NewGuid(),
                     IdentityName = dto.IdentityName,
-                    phoneNumber = dto.phoneNumber,
-                    userName = dto.userName,
+                    PhoneNumber = dto.phoneNumber,
+                    UserName = dto.userName,
                     Password = BCrypt.Net.BCrypt.HashPassword(dto.Password),
-                    RegistredDate = dto.RegistredDate
+                    RegisteredDate = dto.RegistredDate
 
                 };
                 await _authRepository.AddUserAsync(newUser);
@@ -63,7 +65,7 @@ namespace secre_chat_api.chat.Application.Services.AuthService
             {
                 var user = await _authRepository.GetUserByPhoneAsync(dto.phoneNumber);
 
-                if (user != null) return (false, MessageDictionary.Uservalidation.AllfieldRequirement, null);
+                if (user == null) return (false, MessageDictionary.Uservalidation.AllfieldRequirement, null);
 
                 ///Check if locked out
                 if (user.LockoutUntil.HasValue && user.LockoutUntil.Value > DateTime.UtcNow) // Changed < to >
@@ -75,17 +77,52 @@ namespace secre_chat_api.chat.Application.Services.AuthService
                     return (false, MessageDictionary.Uservalidation.LockedDownMessage(minutesLeft), null);
                 }
 
-                if(BCrypt.Net.BCrypt.Verify(dto.Password , user.Password))
+                if (BCrypt.Net.BCrypt.Verify(dto.Password, user.Password))
                 {
-                    user.FaildLoginAttempts = 0;
+                    user.FailedLoginAttempts = 0;
                     user.LockoutUntil = null;
                     await _authRepository.UpdateUserAsync(user);
-                    var tokenHandler = new JwtS
+                    var tokenHandler = new JwtSecurityTokenHandler();
+                    var key = Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]);
+                    var claims = new List<Claim>
+                    {
+                        new Claim(ClaimTypes.NameIdentifier , user.UserId.ToString()),
+                        new Claim(ClaimTypes.Name , user.IdentityName.ToString()),
+                        new Claim(ClaimTypes.MobilePhone , user.PhoneNumber.ToString()),
+                    };
+                    var tokenDescriber = new SecurityTokenDescriptor
+                    {
+                        Subject = new ClaimsIdentity(claims),
+                        Expires = DateTime.UtcNow.AddHours(1),
+                        Issuer = _configuration["Jwt:Issuer"],
+                        Audience = _configuration["Jwt:Audience"],
+                        SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+                    };
+                    var token = tokenHandler.CreateToken(tokenDescriber);
+                    var tokenString = tokenHandler.WriteToken(token);
+                    return (true, MessageDictionary.Uservalidation.LoginSuccess(user.IdentityName), tokenString);
+                }
+                // Case 4: Wrong password → Increment failed attempts
+                user.FailedLoginAttempts += 1;
+                if (user.FailedLoginAttempts >= 3)
+                {
+                    user.LockoutUntil = DateTime.UtcNow.AddMinutes(15);
+                    await _authRepository.UpdateUserAsync(user);
+                    return (false, MessageDictionary.Uservalidation.TooManyAttempt, null);
+                }
+                else
+                {
+                    await _authRepository.UpdateUserAsync(user);
+                    var attemptsLeft = 3 - user.FailedLoginAttempts;
+                    return (false, MessageDictionary.Uservalidation.LockedAttemptLeft(attemptsLeft), null);
                 }
 
-
             }
+            catch (Exception ex)
+            {
+                return (false, MessageDictionary.ErrorExceptions.LoginFailed(ex.Message), null);
             }
+        }
 
         /// </summary>
     }
