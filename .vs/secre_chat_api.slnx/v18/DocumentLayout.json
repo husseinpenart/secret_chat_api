@@ -3,56 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\Husseinpenart\\Desktop\\secre_chat_api\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{95E2C19B-E619-F23C-8705-D7BE4CA37887}|secre_chat_api.csproj|c:\\users\\husseinpenart\\desktop\\secre_chat_api\\chat.application\\services\\authservice\\authservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{95E2C19B-E619-F23C-8705-D7BE4CA37887}|secre_chat_api.csproj|solutionrelative:chat.application\\services\\authservice\\authservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{95E2C19B-E619-F23C-8705-D7BE4CA37887}|secre_chat_api.csproj|c:\\users\\husseinpenart\\desktop\\secre_chat_api\\chat.infstructure\\repository\\chatrepository\\isecretchatrepositries\\ichannelrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{95E2C19B-E619-F23C-8705-D7BE4CA37887}|secre_chat_api.csproj|solutionrelative:chat.infstructure\\repository\\chatrepository\\isecretchatrepositries\\ichannelrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{95E2C19B-E619-F23C-8705-D7BE4CA37887}|secre_chat_api.csproj|c:\\users\\husseinpenart\\desktop\\secre_chat_api\\chat.domain\\entities\\users\\userentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{95E2C19B-E619-F23C-8705-D7BE4CA37887}|secre_chat_api.csproj|solutionrelative:chat.domain\\entities\\users\\userentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{95E2C19B-E619-F23C-8705-D7BE4CA37887}|secre_chat_api.csproj|c:\\users\\husseinpenart\\desktop\\secre_chat_api\\chat.infstructure\\repository\\chatrepository\\isecretchatrepositries\\icontactrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{95E2C19B-E619-F23C-8705-D7BE4CA37887}|secre_chat_api.csproj|solutionrelative:chat.infstructure\\repository\\chatrepository\\isecretchatrepositries\\icontactrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{95E2C19B-E619-F23C-8705-D7BE4CA37887}|secre_chat_api.csproj|c:\\users\\husseinpenart\\desktop\\secre_chat_api\\chat.infstructure\\repository\\authrepository\\authrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{95E2C19B-E619-F23C-8705-D7BE4CA37887}|secre_chat_api.csproj|solutionrelative:chat.infstructure\\repository\\authrepository\\authrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{95E2C19B-E619-F23C-8705-D7BE4CA37887}|secre_chat_api.csproj|c:\\users\\husseinpenart\\desktop\\secre_chat_api\\chat.infstructure\\repository\\chatrepository\\isecretchatrepositries\\imessagerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{95E2C19B-E619-F23C-8705-D7BE4CA37887}|secre_chat_api.csproj|solutionrelative:chat.infstructure\\repository\\chatrepository\\isecretchatrepositries\\imessagerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{95E2C19B-E619-F23C-8705-D7BE4CA37887}|secre_chat_api.csproj|c:\\users\\husseinpenart\\desktop\\secre_chat_api\\chat.domain\\entities\\userinfo\\chatparticipantentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{95E2C19B-E619-F23C-8705-D7BE4CA37887}|secre_chat_api.csproj|solutionrelative:chat.domain\\entities\\userinfo\\chatparticipantentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{95E2C19B-E619-F23C-8705-D7BE4CA37887}|secre_chat_api.csproj|c:\\users\\husseinpenart\\desktop\\secre_chat_api\\chat.infstructure\\repository\\chatrepository\\isecretchatrepositries\\ichatrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{95E2C19B-E619-F23C-8705-D7BE4CA37887}|secre_chat_api.csproj|solutionrelative:chat.infstructure\\repository\\chatrepository\\isecretchatrepositries\\ichatrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{95E2C19B-E619-F23C-8705-D7BE4CA37887}|secre_chat_api.csproj|c:\\users\\husseinpenart\\desktop\\secre_chat_api\\chat.domain\\entities\\userinfo\\chatentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{95E2C19B-E619-F23C-8705-D7BE4CA37887}|secre_chat_api.csproj|solutionrelative:chat.domain\\entities\\userinfo\\chatentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{95E2C19B-E619-F23C-8705-D7BE4CA37887}|secre_chat_api.csproj|c:\\users\\husseinpenart\\desktop\\secre_chat_api\\chat.infstructure\\repository\\authrepository\\iauthrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{95E2C19B-E619-F23C-8705-D7BE4CA37887}|secre_chat_api.csproj|solutionrelative:chat.infstructure\\repository\\authrepository\\iauthrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{95E2C19B-E619-F23C-8705-D7BE4CA37887}|secre_chat_api.csproj|c:\\users\\husseinpenart\\desktop\\secre_chat_api\\chat.application\\middlewares\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{95E2C19B-E619-F23C-8705-D7BE4CA37887}|secre_chat_api.csproj|solutionrelative:chat.application\\middlewares\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{95E2C19B-E619-F23C-8705-D7BE4CA37887}|secre_chat_api.csproj|c:\\users\\husseinpenart\\desktop\\secre_chat_api\\chat.domain\\entities\\userinfo\\channelentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{95E2C19B-E619-F23C-8705-D7BE4CA37887}|secre_chat_api.csproj|solutionrelative:chat.domain\\entities\\userinfo\\channelentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{95E2C19B-E619-F23C-8705-D7BE4CA37887}|secre_chat_api.csproj|c:\\users\\husseinpenart\\desktop\\secre_chat_api\\chat.domain\\entities\\userinfo\\channelmemberentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{95E2C19B-E619-F23C-8705-D7BE4CA37887}|secre_chat_api.csproj|solutionrelative:chat.domain\\entities\\userinfo\\channelmemberentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{95E2C19B-E619-F23C-8705-D7BE4CA37887}|secre_chat_api.csproj|c:\\users\\husseinpenart\\desktop\\secre_chat_api\\chat.domain\\entities\\userinfo\\contactentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{95E2C19B-E619-F23C-8705-D7BE4CA37887}|secre_chat_api.csproj|solutionrelative:chat.domain\\entities\\userinfo\\contactentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{95E2C19B-E619-F23C-8705-D7BE4CA37887}|secre_chat_api.csproj|c:\\users\\husseinpenart\\desktop\\secre_chat_api\\chat.domain\\entities\\userinfo\\messageentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{95E2C19B-E619-F23C-8705-D7BE4CA37887}|secre_chat_api.csproj|solutionrelative:chat.domain\\entities\\userinfo\\messageentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{95E2C19B-E619-F23C-8705-D7BE4CA37887}|secre_chat_api.csproj|c:\\users\\husseinpenart\\desktop\\secre_chat_api\\chat.domain\\dtos\\userdtos\\userregisterdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{95E2C19B-E619-F23C-8705-D7BE4CA37887}|secre_chat_api.csproj|solutionrelative:chat.domain\\dtos\\userdtos\\userregisterdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{95E2C19B-E619-F23C-8705-D7BE4CA37887}|secre_chat_api.csproj|c:\\users\\husseinpenart\\desktop\\secre_chat_api\\chat.domain\\dtos\\userdtos\\userlogindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{95E2C19B-E619-F23C-8705-D7BE4CA37887}|secre_chat_api.csproj|solutionrelative:chat.domain\\dtos\\userdtos\\userlogindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{95E2C19B-E619-F23C-8705-D7BE4CA37887}|secre_chat_api.csproj|c:\\users\\husseinpenart\\desktop\\secre_chat_api\\chat.infstructure\\repository\\chatrepository\\isecretchatrepositries\\ichannelmemberrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{95E2C19B-E619-F23C-8705-D7BE4CA37887}|secre_chat_api.csproj|solutionrelative:chat.infstructure\\repository\\chatrepository\\isecretchatrepositries\\ichannelmemberrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -62,175 +30,71 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "AuthServices.cs",
-              "DocumentMoniker": "C:\\Users\\Husseinpenart\\Desktop\\secre_chat_api\\chat.Application\\Services\\AuthService\\AuthServices.cs",
-              "RelativeDocumentMoniker": "chat.Application\\Services\\AuthService\\AuthServices.cs",
-              "ToolTip": "C:\\Users\\Husseinpenart\\Desktop\\secre_chat_api\\chat.Application\\Services\\AuthService\\AuthServices.cs",
-              "RelativeToolTip": "chat.Application\\Services\\AuthService\\AuthServices.cs",
-              "ViewState": "AgIAAFEAAAAAAAAAAAAqwCoAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-09T20:30:54.156Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "AppDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\Husseinpenart\\Desktop\\secre_chat_api\\chat.Application\\MiddleWares\\AppDbContext.cs",
-              "RelativeDocumentMoniker": "chat.Application\\MiddleWares\\AppDbContext.cs",
-              "ToolTip": "C:\\Users\\Husseinpenart\\Desktop\\secre_chat_api\\chat.Application\\MiddleWares\\AppDbContext.cs",
-              "RelativeToolTip": "chat.Application\\MiddleWares\\AppDbContext.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAYwEAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-09T20:23:45.319Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "AuthRepository.cs",
-              "DocumentMoniker": "C:\\Users\\Husseinpenart\\Desktop\\secre_chat_api\\chat.Infstructure\\Repository\\AuthRepository\\AuthRepository.cs",
-              "RelativeDocumentMoniker": "chat.Infstructure\\Repository\\AuthRepository\\AuthRepository.cs",
-              "ToolTip": "C:\\Users\\Husseinpenart\\Desktop\\secre_chat_api\\chat.Infstructure\\Repository\\AuthRepository\\AuthRepository.cs",
-              "RelativeToolTip": "chat.Infstructure\\Repository\\AuthRepository\\AuthRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "Title": "IMessageRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Husseinpenart\\Desktop\\secre_chat_api\\chat.Infstructure\\Repository\\ChatRepository\\ISecretChatRepositries\\IMessageRepository.cs",
+              "RelativeDocumentMoniker": "chat.Infstructure\\Repository\\ChatRepository\\ISecretChatRepositries\\IMessageRepository.cs",
+              "ToolTip": "C:\\Users\\Husseinpenart\\Desktop\\secre_chat_api\\chat.Infstructure\\Repository\\ChatRepository\\ISecretChatRepositries\\IMessageRepository.cs",
+              "RelativeToolTip": "chat.Infstructure\\Repository\\ChatRepository\\ISecretChatRepositries\\IMessageRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-09T20:23:22.699Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ChatParticipantEntity.cs",
-              "DocumentMoniker": "C:\\Users\\Husseinpenart\\Desktop\\secre_chat_api\\chat.Domain\\Entities\\UserInfo\\ChatParticipantEntity.cs",
-              "RelativeDocumentMoniker": "chat.Domain\\Entities\\UserInfo\\ChatParticipantEntity.cs",
-              "ToolTip": "C:\\Users\\Husseinpenart\\Desktop\\secre_chat_api\\chat.Domain\\Entities\\UserInfo\\ChatParticipantEntity.cs",
-              "RelativeToolTip": "chat.Domain\\Entities\\UserInfo\\ChatParticipantEntity.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-09T20:19:06.137Z",
+              "WhenOpened": "2026-06-11T10:49:57.151Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "UserEntity.cs",
-              "DocumentMoniker": "C:\\Users\\Husseinpenart\\Desktop\\secre_chat_api\\chat.Domain\\Entities\\Users\\UserEntity.cs",
-              "RelativeDocumentMoniker": "chat.Domain\\Entities\\Users\\UserEntity.cs",
-              "ToolTip": "C:\\Users\\Husseinpenart\\Desktop\\secre_chat_api\\chat.Domain\\Entities\\Users\\UserEntity.cs",
-              "RelativeToolTip": "chat.Domain\\Entities\\Users\\UserEntity.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAmAAAAAAAAAA==",
+              "Title": "IContactRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Husseinpenart\\Desktop\\secre_chat_api\\chat.Infstructure\\Repository\\ChatRepository\\ISecretChatRepositries\\IContactRepository.cs",
+              "RelativeDocumentMoniker": "chat.Infstructure\\Repository\\ChatRepository\\ISecretChatRepositries\\IContactRepository.cs",
+              "ToolTip": "C:\\Users\\Husseinpenart\\Desktop\\secre_chat_api\\chat.Infstructure\\Repository\\ChatRepository\\ISecretChatRepositries\\IContactRepository.cs",
+              "RelativeToolTip": "chat.Infstructure\\Repository\\ChatRepository\\ISecretChatRepositries\\IContactRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-09T20:16:42.167Z",
+              "WhenOpened": "2026-06-11T10:49:38.694Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IChatRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Husseinpenart\\Desktop\\secre_chat_api\\chat.Infstructure\\Repository\\ChatRepository\\ISecretChatRepositries\\IChatRepository.cs",
+              "RelativeDocumentMoniker": "chat.Infstructure\\Repository\\ChatRepository\\ISecretChatRepositries\\IChatRepository.cs",
+              "ToolTip": "C:\\Users\\Husseinpenart\\Desktop\\secre_chat_api\\chat.Infstructure\\Repository\\ChatRepository\\ISecretChatRepositries\\IChatRepository.cs",
+              "RelativeToolTip": "chat.Infstructure\\Repository\\ChatRepository\\ISecretChatRepositries\\IChatRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-11T10:49:29.216Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "IChannelRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Husseinpenart\\Desktop\\secre_chat_api\\chat.Infstructure\\Repository\\ChatRepository\\ISecretChatRepositries\\IChannelRepository.cs",
+              "RelativeDocumentMoniker": "chat.Infstructure\\Repository\\ChatRepository\\ISecretChatRepositries\\IChannelRepository.cs",
+              "ToolTip": "C:\\Users\\Husseinpenart\\Desktop\\secre_chat_api\\chat.Infstructure\\Repository\\ChatRepository\\ISecretChatRepositries\\IChannelRepository.cs",
+              "RelativeToolTip": "chat.Infstructure\\Repository\\ChatRepository\\ISecretChatRepositries\\IChannelRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-11T10:49:07.401Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "ChatEntity.cs",
-              "DocumentMoniker": "C:\\Users\\Husseinpenart\\Desktop\\secre_chat_api\\chat.Domain\\Entities\\UserInfo\\ChatEntity.cs",
-              "RelativeDocumentMoniker": "chat.Domain\\Entities\\UserInfo\\ChatEntity.cs",
-              "ToolTip": "C:\\Users\\Husseinpenart\\Desktop\\secre_chat_api\\chat.Domain\\Entities\\UserInfo\\ChatEntity.cs",
-              "RelativeToolTip": "chat.Domain\\Entities\\UserInfo\\ChatEntity.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "IChannelMemberRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Husseinpenart\\Desktop\\secre_chat_api\\chat.Infstructure\\Repository\\ChatRepository\\ISecretChatRepositries\\IChannelMemberRepository.cs",
+              "RelativeDocumentMoniker": "chat.Infstructure\\Repository\\ChatRepository\\ISecretChatRepositries\\IChannelMemberRepository.cs",
+              "ToolTip": "C:\\Users\\Husseinpenart\\Desktop\\secre_chat_api\\chat.Infstructure\\Repository\\ChatRepository\\ISecretChatRepositries\\IChannelMemberRepository.cs",
+              "RelativeToolTip": "chat.Infstructure\\Repository\\ChatRepository\\ISecretChatRepositries\\IChannelMemberRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-09T20:18:51.189Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "IAuthRepository.cs",
-              "DocumentMoniker": "C:\\Users\\Husseinpenart\\Desktop\\secre_chat_api\\chat.Infstructure\\Repository\\AuthRepository\\IAuthRepository.cs",
-              "RelativeDocumentMoniker": "chat.Infstructure\\Repository\\AuthRepository\\IAuthRepository.cs",
-              "ToolTip": "C:\\Users\\Husseinpenart\\Desktop\\secre_chat_api\\chat.Infstructure\\Repository\\AuthRepository\\IAuthRepository.cs",
-              "RelativeToolTip": "chat.Infstructure\\Repository\\AuthRepository\\IAuthRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-09T20:24:09.243Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "ChannelMemberEntity.cs",
-              "DocumentMoniker": "C:\\Users\\Husseinpenart\\Desktop\\secre_chat_api\\chat.Domain\\Entities\\UserInfo\\ChannelMemberEntity.cs",
-              "RelativeDocumentMoniker": "chat.Domain\\Entities\\UserInfo\\ChannelMemberEntity.cs",
-              "ToolTip": "C:\\Users\\Husseinpenart\\Desktop\\secre_chat_api\\chat.Domain\\Entities\\UserInfo\\ChannelMemberEntity.cs",
-              "RelativeToolTip": "chat.Domain\\Entities\\UserInfo\\ChannelMemberEntity.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-09T20:19:33.052Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "ContactEntity.cs",
-              "DocumentMoniker": "C:\\Users\\Husseinpenart\\Desktop\\secre_chat_api\\chat.Domain\\Entities\\UserInfo\\ContactEntity.cs",
-              "RelativeDocumentMoniker": "chat.Domain\\Entities\\UserInfo\\ContactEntity.cs",
-              "ToolTip": "C:\\Users\\Husseinpenart\\Desktop\\secre_chat_api\\chat.Domain\\Entities\\UserInfo\\ContactEntity.cs",
-              "RelativeToolTip": "chat.Domain\\Entities\\UserInfo\\ContactEntity.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-09T20:18:39.761Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "ChannelEntity.cs",
-              "DocumentMoniker": "C:\\Users\\Husseinpenart\\Desktop\\secre_chat_api\\chat.Domain\\Entities\\UserInfo\\ChannelEntity.cs",
-              "RelativeDocumentMoniker": "chat.Domain\\Entities\\UserInfo\\ChannelEntity.cs",
-              "ToolTip": "C:\\Users\\Husseinpenart\\Desktop\\secre_chat_api\\chat.Domain\\Entities\\UserInfo\\ChannelEntity.cs",
-              "RelativeToolTip": "chat.Domain\\Entities\\UserInfo\\ChannelEntity.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-09T20:19:24.102Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "MessageEntity.cs",
-              "DocumentMoniker": "C:\\Users\\Husseinpenart\\Desktop\\secre_chat_api\\chat.Domain\\Entities\\UserInfo\\MessageEntity.cs",
-              "RelativeDocumentMoniker": "chat.Domain\\Entities\\UserInfo\\MessageEntity.cs",
-              "ToolTip": "C:\\Users\\Husseinpenart\\Desktop\\secre_chat_api\\chat.Domain\\Entities\\UserInfo\\MessageEntity.cs",
-              "RelativeToolTip": "chat.Domain\\Entities\\UserInfo\\MessageEntity.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-09T20:19:15.044Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "UserRegisterDto.cs",
-              "DocumentMoniker": "C:\\Users\\Husseinpenart\\Desktop\\secre_chat_api\\chat.Domain\\DTOS\\UserDtos\\UserRegisterDto.cs",
-              "RelativeDocumentMoniker": "chat.Domain\\DTOS\\UserDtos\\UserRegisterDto.cs",
-              "ToolTip": "C:\\Users\\Husseinpenart\\Desktop\\secre_chat_api\\chat.Domain\\DTOS\\UserDtos\\UserRegisterDto.cs",
-              "RelativeToolTip": "chat.Domain\\DTOS\\UserDtos\\UserRegisterDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-09T20:15:44.438Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "UserLoginDto.cs",
-              "DocumentMoniker": "C:\\Users\\Husseinpenart\\Desktop\\secre_chat_api\\chat.Domain\\DTOS\\UserDtos\\UserLoginDto.cs",
-              "RelativeDocumentMoniker": "chat.Domain\\DTOS\\UserDtos\\UserLoginDto.cs",
-              "ToolTip": "C:\\Users\\Husseinpenart\\Desktop\\secre_chat_api\\chat.Domain\\DTOS\\UserDtos\\UserLoginDto.cs",
-              "RelativeToolTip": "chat.Domain\\DTOS\\UserDtos\\UserLoginDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-09T20:15:36.031Z",
+              "WhenOpened": "2026-06-11T10:48:42.216Z",
               "EditorCaption": ""
             }
           ]

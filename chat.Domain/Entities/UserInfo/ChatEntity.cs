@@ -6,7 +6,7 @@ namespace secre_chat_api.chat.Domain.Entities
     public enum ChatType { Private, Group }
 
     [Table("Chats")]
-    public class ChatEntity
+    public class ChatDtos
     {
         [Key]
         public Guid ChatId { get; set; } = Guid.NewGuid();
@@ -15,7 +15,7 @@ namespace secre_chat_api.chat.Domain.Entities
         public string? Title { get; set; }       
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
-        public ICollection<ChatParticipantEntity> Participants { get; set; } = new List<ChatParticipantEntity>();
-        public ICollection<MessageEntity> Messages { get; set; } = new List<MessageEntity>();
+        public ICollection<ChatParticipantDtos> Participants { get; set; } = new List<ChatParticipantDtos>();
+        public ICollection<MessageDtos> Messages { get; set; } = new List<MessageDtos>();
     }
 }

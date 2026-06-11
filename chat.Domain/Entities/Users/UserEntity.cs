@@ -27,9 +27,9 @@ namespace secre_chat_api.chat.Domain.Entities
         public DateTime? LockoutUntil { get; set; }
 
         // Navigation properties
-        public ICollection<ContactEntity> Contacts { get; set; } = new List<ContactEntity>();
-        public ICollection<ChatParticipantEntity> ChatParticipants { get; set; } = new List<ChatParticipantEntity>();
-        public ICollection<ChannelMemberEntity> ChannelMembers { get; set; } = new List<ChannelMemberEntity>();
-        public ICollection<MessageEntity> SentMessages { get; set; } = new List<MessageEntity>();
+        public ICollection<ContactDtos> Contacts { get; set; } = new List<ContactDtos>();
+        public ICollection<ChatParticipantDtos> ChatParticipants { get; set; } = new List<ChatParticipantDtos>();
+        public ICollection<ChannelMemberDtos> ChannelMembers { get; set; } = new List<ChannelMemberDtos>();
+        public ICollection<MessageDtos> SentMessages { get; set; } = new List<MessageDtos>();
     }
 }

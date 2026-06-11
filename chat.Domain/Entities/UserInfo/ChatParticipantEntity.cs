@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace secre_chat_api.chat.Domain.Entities
 {
     [Table("ChatParticipants")]
-    public class ChatParticipantEntity
+    public class ChatParticipantDtos
     {
         [Key]
         public Guid Id { get; set; } = Guid.NewGuid();
@@ -14,7 +14,7 @@ namespace secre_chat_api.chat.Domain.Entities
         public DateTime JoinedAt { get; set; } = DateTime.UtcNow;
 
         [ForeignKey(nameof(ChatId))]
-        public ChatEntity Chat { get; set; } = null!;
+        public ChatDtos Chat { get; set; } = null!;
 
         [ForeignKey(nameof(UserId))]
         public UserEntity User { get; set; } = null!;

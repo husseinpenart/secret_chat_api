@@ -8,12 +8,12 @@ namespace secre_chat_api.chat.Application.MiddleWares
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
         public DbSet<UserEntity> Users { get; set; }
-        public DbSet<ContactEntity> Contacts { get; set; }
-        public DbSet<ChatEntity> Chats { get; set; }
-        public DbSet<ChatParticipantEntity> ChatParticipants { get; set; }
-        public DbSet<ChannelEntity> Channels { get; set; }
-        public DbSet<ChannelMemberEntity> ChannelMembers { get; set; }
-        public DbSet<MessageEntity> Messages { get; set; }
+        public DbSet<ContactDtos> Contacts { get; set; }
+        public DbSet<ChatDtos> Chats { get; set; }
+        public DbSet<ChatParticipantDtos> ChatParticipants { get; set; }
+        public DbSet<ChannelDtos> Channels { get; set; }
+        public DbSet<ChannelMemberDtos> ChannelMembers { get; set; }
+        public DbSet<MessageDtos> Messages { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -22,39 +22,39 @@ namespace secre_chat_api.chat.Application.MiddleWares
                 .HasIndex(e => e.PhoneNumber).IsUnique();
 
             // Contact: one user has many contacts, no cascade on TargetUser to avoid cycles
-            modelBuilder.Entity<ContactEntity>()
+            modelBuilder.Entity<ContactDtos>()
                 .HasOne(c => c.Owner)
                 .WithMany(u => u.Contacts)
                 .HasForeignKey(c => c.OwnerId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            modelBuilder.Entity<ContactEntity>()
+            modelBuilder.Entity<ContactDtos>()
                 .HasOne(c => c.TargetUser)
                 .WithMany()
                 .HasForeignKey(c => c.TargetUserId)
                 .OnDelete(DeleteBehavior.Restrict);
 
             // Message: restrict deletes to avoid multiple cascade paths
-            modelBuilder.Entity<MessageEntity>()
+            modelBuilder.Entity<MessageDtos>()
                 .HasOne(m => m.Sender)
                 .WithMany(u => u.SentMessages)
                 .HasForeignKey(m => m.SenderId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            modelBuilder.Entity<MessageEntity>()
+            modelBuilder.Entity<MessageDtos>()
                 .HasOne(m => m.Chat)
                 .WithMany(c => c.Messages)
                 .HasForeignKey(m => m.ChatId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            modelBuilder.Entity<MessageEntity>()
+            modelBuilder.Entity<MessageDtos>()
                 .HasOne(m => m.Channel)
                 .WithMany(c => c.Messages)
                 .HasForeignKey(m => m.ChannelId)
                 .OnDelete(DeleteBehavior.Cascade);
 
             // Channel owner
-            modelBuilder.Entity<ChannelEntity>()
+            modelBuilder.Entity<ChannelDtos>()
                 .HasOne(c => c.Owner)
                 .WithMany()
                 .HasForeignKey(c => c.OwnerId)

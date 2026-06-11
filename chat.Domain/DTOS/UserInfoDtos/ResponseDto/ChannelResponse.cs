@@ -1,15 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using secre_chat_api.chat.Domain.Entities;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace secre_chat_api.chat.Domain.Entities
+namespace secre_chat_api.chat.Domain.DTOS.UserInfoDtos.ResponseDto
 {
-    [Table("Channels")]
-    public class ChannelDtos
+    public class ChannelResponse
     {
-        [Key]
-        public Guid ChannelId { get; set; } = Guid.NewGuid();
-
-        [Required]
         public string Title { get; set; } = null!;
 
         public string? Description { get; set; }
@@ -18,7 +13,6 @@ namespace secre_chat_api.chat.Domain.Entities
 
         [ForeignKey(nameof(OwnerId))]
         public UserEntity Owner { get; set; } = null!;
-
         public ICollection<ChannelMemberDtos> Members { get; set; } = new List<ChannelMemberDtos>();
         public ICollection<MessageDtos> Messages { get; set; } = new List<MessageDtos>();
     }

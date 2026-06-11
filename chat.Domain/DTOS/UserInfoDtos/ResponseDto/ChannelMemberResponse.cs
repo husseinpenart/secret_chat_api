@@ -1,13 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using secre_chat_api.chat.Domain.Entities;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace secre_chat_api.chat.Domain.Entities
+namespace secre_chat_api.chat.Domain.DTOS.UserInfoDtos.ResponseDto
 {
-    [Table("ChannelMembers")]
-    public class ChannelMemberDtos
+    public class ChannelMemberResponse
     {
-        [Key]
-        public Guid Id { get; set; } = Guid.NewGuid();
 
         public Guid ChannelId { get; set; }
         public Guid UserId { get; set; }
