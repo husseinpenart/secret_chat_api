@@ -57,7 +57,7 @@ public class ChatRepository : IChatRepository
 
     public async Task<ChatResponse> AddAsync(ChatRequest request, CancellationToken ct = default)
     {
-        var chat = new ChatDtos
+        var chat = new ChatEntity   // was: ChatDtos
         {
             Type = request.Type,
             Title = request.Title
@@ -66,10 +66,9 @@ public class ChatRepository : IChatRepository
         await _context.Chats.AddAsync(chat, ct);
         await _context.SaveChangesAsync(ct);
 
-        // Add participants
         foreach (var participantId in request.ParticipantIds)
         {
-            _context.ChatParticipants.Add(new ChatParticipantDtos
+            _context.ChatParticipants.Add(new ChatParticipantEntity   // was: ChatParticipantDtos
             {
                 ChatId = chat.ChatId,
                 UserId = participantId

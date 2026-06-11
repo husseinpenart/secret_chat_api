@@ -1,6 +1,9 @@
-﻿using secre_chat_api.chat.Domain.DTOS;
+﻿using Microsoft.EntityFrameworkCore;
+using secre_chat_api.chat.Domain.DTOS;
 using secre_chat_api.chat.Domain.Entities;
 using secre_chat_api.chat.Infstructure.Repository.ChatRepository.ISecretChatRepositries;
+
+namespace secre_chat_api.chat.Infrastructure.Persistence.Repositories;
 
 public class ChannelMemberRepository : IChannelMemberRepository
 {
@@ -59,28 +62,29 @@ public class ChannelMemberRepository : IChannelMemberRepository
             .ToListAsync(ct);
     }
 
-    public async Task<ChannelMemberResponse> AddAsync(ChannelMemberRequest request, CancellationToken ct = default)
+    // userId comes from auth context, not from request body
+    public async Task<ChannelMemberResponse> AddAsync(Guid userId, ChannelMemberRequest request, CancellationToken ct = default)
     {
-        var member = new ChannelMemberDtos
+        var member = new ChannelMemberEntity
         {
             ChannelId = request.ChannelId,
-            UserId = request.UserId,
-            IsAdmin = request.IsAdmin
+            UserId = userId,
+            IsAdmin = request.IsAdmin,
+            JoinedAt = DateTime.UtcNow
         };
 
         await _context.ChannelMembers.AddAsync(member, ct);
         await _context.SaveChangesAsync(ct);
 
-        return await GetByIdAsync(request.ChannelId, request.UserId, ct)
+        return await GetByIdAsync(request.ChannelId, userId, ct)
             ?? throw new InvalidOperationException("Failed to add member");
     }
 
     public async Task UpdateAdminStatusAsync(Guid channelId, Guid userId, bool isAdmin, CancellationToken ct = default)
     {
         var member = await _context.ChannelMembers
-            .FirstOrDefaultAsync(m => m.ChannelId == channelId && m.UserId == userId, ct);
-
-        if (member == null) throw new KeyNotFoundException("Member not found");
+            .FirstOrDefaultAsync(m => m.ChannelId == channelId && m.UserId == userId, ct)
+            ?? throw new KeyNotFoundException("Member not found");
 
         member.IsAdmin = isAdmin;
         await _context.SaveChangesAsync(ct);

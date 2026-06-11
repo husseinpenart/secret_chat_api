@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace secre_chat_api.chat.Domain.Entities
 {
     [Table("Contacts")]
-    public class ContactDtos
+    public class ContactEntity
     {
         [Key]
         public Guid ContactId { get; set; } = Guid.NewGuid();

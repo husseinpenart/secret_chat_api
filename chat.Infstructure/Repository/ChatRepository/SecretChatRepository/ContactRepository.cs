@@ -51,7 +51,7 @@ public class ContactRepository : IContactRepository
 
     public async Task<ContactResponse> AddAsync(ContactRequest request, Guid ownerId, CancellationToken ct = default)
     {
-        var contact = new ContactDtos
+        var contact = new ContactEntity   // was: ContactDtos
         {
             OwnerId = ownerId,
             TargetUserId = request.TargetUserId,

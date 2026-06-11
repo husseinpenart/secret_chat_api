@@ -1,7 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using secre_chat_api.chat.Domain.DTOs;
 using secre_chat_api.chat.Domain.DTOS;
 using secre_chat_api.chat.Domain.Entities;
-using secre_chat_api.chat.Domain.Interfaces;
+using secre_chat_api.chat.Infstructure.Repository.ChatRepository.ISecretChatRepositries;
 
 namespace secre_chat_api.chat.Infrastructure.Persistence.Repositories;
 
@@ -56,12 +57,14 @@ public class ChatParticipantRepository : IChatParticipantRepository
             .ToListAsync(ct);
     }
 
-    public async Task AddAsync(Guid chatId, Guid userId, CancellationToken ct = default)
+    // userId comes from auth context
+    public async Task AddAsync(Guid userId, ChatParticipantRequest request, CancellationToken ct = default)
     {
-        var participant = new ChatParticipantDtos
+        var participant = new ChatParticipantEntity
         {
-            ChatId = chatId,
-            UserId = userId
+            ChatId = request.ChatId,
+            UserId = userId,
+            JoinedAt = DateTime.UtcNow
         };
 
         await _context.ChatParticipants.AddAsync(participant, ct);

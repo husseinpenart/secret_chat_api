@@ -1,8 +1,13 @@
-﻿using secre_chat_api.chat.Domain.Entities;
+﻿using secre_chat_api.chat.Domain.DTOS.UserDtos;
 
-public interface IAuthRepository
+namespace secre_chat_api.chat.Infstructure.Repository.ChatRepository.ISecretChatRepositries
 {
-    Task AddUserAsync(UserEntity user);
-    Task<UserEntity?> GetUserByPhoneAsync(string phoneNumber);
-    Task UpdateUserAsync(UserEntity user);
+    public interface IAuthRepository
+    {
+        Task<UserResponse?> GetByIdAsync(Guid id, CancellationToken ct = default);
+        Task<UserResponse?> GetByPhoneNumberAsync(string phoneNumber, CancellationToken ct = default);
+        Task<UserResponse> RegisterAsync(UserRegisterDto request, CancellationToken ct = default);
+        Task<UserProfileResponse> SetProfileAsync(Guid userId, UserProfileRequest request, CancellationToken ct = default);
+        Task<bool> ExistsAsync(Guid id, CancellationToken ct = default);
+    }
 }

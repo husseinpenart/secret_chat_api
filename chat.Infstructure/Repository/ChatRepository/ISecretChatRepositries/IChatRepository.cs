@@ -6,8 +6,9 @@ namespace secre_chat_api.chat.Infstructure.Repository.ChatRepository.ISecretChat
     {
         Task<ChatResponse?> GetByIdAsync(Guid id, CancellationToken ct = default);
         Task<IEnumerable<ChatResponse>> GetByUserIdAsync(Guid userId, CancellationToken ct = default);
-        Task<ChatResponse> AddAsync(ChatRequest request, CancellationToken ct = default);
+        Task<ChatResponse> AddAsync(ChatRequest request, Guid creatorId, CancellationToken ct = default);
         Task DeleteAsync(Guid id, CancellationToken ct = default);
-        Task<bool> ExistsAsync(Guid id, CancellationToken ct = default);
+        Task<bool> ExistsAsync(Guid id, CancellationToken ct = default);// Group profile management
+        Task<GroupProfileResponse> SetGroupProfileAsync(Guid chatId, GroupProfileRequest request, Guid ownerId, CancellationToken ct = default);
     }
 }

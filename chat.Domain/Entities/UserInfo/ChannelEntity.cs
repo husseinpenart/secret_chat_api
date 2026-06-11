@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace secre_chat_api.chat.Domain.Entities
 {
     [Table("Channels")]
-    public class ChannelDtos
+    public class ChannelEntity
     {
         [Key]
         public Guid ChannelId { get; set; } = Guid.NewGuid();
@@ -19,7 +19,8 @@ namespace secre_chat_api.chat.Domain.Entities
         [ForeignKey(nameof(OwnerId))]
         public UserEntity Owner { get; set; } = null!;
 
-        public ICollection<ChannelMemberDtos> Members { get; set; } = new List<ChannelMemberDtos>();
-        public ICollection<MessageDtos> Messages { get; set; } = new List<MessageDtos>();
+        public ICollection<ChannelProfile> Profiles { get; set; } = new List<ChannelProfile>();
+        public ICollection<ChannelMemberEntity> Members { get; set; } = new List<ChannelMemberEntity>();
+        public ICollection<MessageEntity> Messages { get; set; } = new List<MessageEntity>();
     }
 }

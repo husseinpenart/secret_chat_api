@@ -78,11 +78,11 @@ public class MessageRepository : IMessageRepository
             .ToListAsync(ct);
     }
 
-    public async Task<MessageResponse> AddAsync(MessageRequest request, CancellationToken ct = default)
+    public async Task<MessageResponse> AddAsync(MessageRequest request, Guid senderId, CancellationToken ct = default)
     {
-        var message = new MessageDtos
+        var message = new MessageEntity   // was: MessageDtos
         {
-            SenderId = request.SenderId,
+            SenderId = senderId,          // was: request.SenderId
             ChatId = request.ChatId,
             ChannelId = request.ChannelId,
             Content = request.Content
