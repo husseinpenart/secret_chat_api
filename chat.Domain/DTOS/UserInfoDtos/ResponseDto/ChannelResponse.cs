@@ -13,7 +13,7 @@ namespace secre_chat_api.chat.Domain.DTOS.UserInfoDtos.ResponseDto
 
         [ForeignKey(nameof(OwnerId))]
         public UserEntity Owner { get; set; } = null!;
-        public ICollection<ChannelMemberDtos> Members { get; set; } = new List<ChannelMemberDtos>();
-        public ICollection<MessageDtos> Messages { get; set; } = new List<MessageDtos>();
+        public ICollection<ChannelMemberResponse> Members { get; set; } = new List<ChannelMemberResponse>();
+        public ICollection<MessageResponse> Messages { get; set; } = new List<MessageDtos>();
     }
 }

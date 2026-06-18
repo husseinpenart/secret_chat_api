@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using secre_chat_api.chat.Domain.DTOs;
+using secre_chat_api.chat.Application.MiddleWares;
 using secre_chat_api.chat.Domain.DTOS;
 using secre_chat_api.chat.Domain.Entities;
 using secre_chat_api.chat.Infstructure.Repository.ChatRepository.ISecretChatRepositries;
@@ -8,9 +8,9 @@ namespace secre_chat_api.chat.Infrastructure.Persistence.Repositories;
 
 public class ChatParticipantRepository : IChatParticipantRepository
 {
-    private readonly ChatDbContext _context;
+    private readonly AppDbContext _context;
 
-    public ChatParticipantRepository(ChatDbContext context)
+    public ChatParticipantRepository(AppDbContext context)
     {
         _context = context;
     }

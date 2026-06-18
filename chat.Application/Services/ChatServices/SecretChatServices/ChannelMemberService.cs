@@ -1,5 +1,4 @@
-﻿using secre_chat_api.chat.Application.Repositories.ChannelMemberRepository;
-using secre_chat_api.chat.Domain.DTOS.ChannelDtos;
+﻿using secre_chat_api.chat.Domain.DTOS;
 using secre_chat_api.chat.Infstructure.Repository.ChatRepository.ISecretChatRepositries;
 
 namespace secre_chat_api.chat.Application.Services.ChannelMemberService
@@ -27,7 +26,7 @@ namespace secre_chat_api.chat.Application.Services.ChannelMemberService
             return result ? (true, "Admin status updated.") : (false, "Failed or unauthorized.");
         }
 
-        public async Task<(bool success, string message, IEnumerable<ChannelMemberResponseDto>? Data)> GetMembersAsync(Guid channelId)
+        public async Task<(bool success, string message, IEnumerable<ChannelMemberResponse>? Data)> GetMembersAsync(Guid channelId)
         {
             var data = await _repo.GetByChannelIdAsync(channelId);
             return (true, "OK", data);

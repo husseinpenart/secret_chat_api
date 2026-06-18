@@ -1,5 +1,4 @@
-﻿using secre_chat_api.chat.Application.Repositories.ChatParticipantRepository;
-using secre_chat_api.chat.Domain.DTOS.ChatDtos;
+﻿using secre_chat_api.chat.Domain.DTOS;
 using secre_chat_api.chat.Infstructure.Repository.ChatRepository.ISecretChatRepositries;
 
 namespace secre_chat_api.chat.Application.Services.ChatParticipantService
@@ -27,7 +26,7 @@ namespace secre_chat_api.chat.Application.Services.ChatParticipantService
             return result ? (true, "Admin status updated.") : (false, "Failed or unauthorized.");
         }
 
-        public async Task<(bool success, string message, IEnumerable<ChatParticipantResponseDto>? Data)> GetParticipantsAsync(Guid chatId)
+        public async Task<(bool success, string message, IEnumerable<ChatParticipantResponse>? Data)> GetParticipantsAsync(Guid chatId)
         {
             var data = await _repo.GetByChatIdAsync(chatId);
             return (true, "OK", data);

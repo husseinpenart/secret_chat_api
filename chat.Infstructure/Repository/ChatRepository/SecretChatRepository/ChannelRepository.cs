@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using secre_chat_api.chat.Domain.DTOs;
+using secre_chat_api.chat.Application.MiddleWares;
 using secre_chat_api.chat.Domain.DTOS;
 using secre_chat_api.chat.Domain.Entities;
 using secre_chat_api.chat.Infstructure.Repository.ChatRepository.ISecretChatRepositries;
@@ -8,9 +8,9 @@ namespace secre_chat_api.chat.Infrastructure.Persistence.Repositories;
 
 public class ChannelRepository : IChannelRepository
 {
-    private readonly ChatDbContext _context;
+    private readonly AppDbContext _context;
 
-    public ChannelRepository(ChatDbContext context)
+    public ChannelRepository(AppDbContext context)
     {
         _context = context;
     }
@@ -70,7 +70,23 @@ public class ChannelRepository : IChannelRepository
             })
             .ToListAsync(ct);
     }
+    public async Task<ChannelResponse> AddAsync(ChannelRequest request, CancellationToken ct = default)
+    {
+        var channel = new ChannelEntity
+        {
+            ChannelId = Guid.NewGuid(),
+            Title = request.Title,
+            Description = request.Description,
+            OwnerId = request.OwnerId,
+            CreatedAt = DateTime.UtcNow
+        };
 
+        await _context.Channels.AddAsync(channel, ct);
+        await _context.SaveChangesAsync(ct);
+
+        return await GetByIdAsync(channel.ChannelId, ct)
+            ?? throw new InvalidOperationException("Failed to create channel");
+    }
     // creatorId comes from auth context (HttpContext / JWT claim)
     public async Task<ChannelResponse> AddAsync(Guid creatorId, ChannelRequest request, CancellationToken ct = default)
     {

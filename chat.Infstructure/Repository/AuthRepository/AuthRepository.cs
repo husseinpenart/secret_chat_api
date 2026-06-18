@@ -15,28 +15,40 @@ public class AuthRepository : IAuthRepository
         _context = context ?? throw new ArgumentNullException(nameof(context));
     }
 
-    public async Task AddUserAsync(UserRegisterDto dto, CancellationToken ct = default)
+    public async Task<UserResponse?> GetByIdAsync(Guid id, CancellationToken ct = default)
+    {
+        var user = await _context.Users
+            .FirstOrDefaultAsync(u => u.UserId == id, ct);
+
+        return user is null ? null : MapToUserResponse(user);
+    }
+
+    public async Task<UserResponse?> GetByPhoneNumberAsync(string phoneNumber, CancellationToken ct = default)
+    {
+        var user = await _context.Users
+            .FirstOrDefaultAsync(u => u.PhoneNumber == phoneNumber, ct);
+
+        return user is null ? null : MapToUserResponse(user);
+    }
+
+    public async Task<UserResponse> RegisterAsync(UserRegisterDto request, CancellationToken ct = default)
     {
         var user = new UserEntity
         {
             UserId = Guid.NewGuid(),
-            UserName = dto.userName,
-            PhoneNumber = dto.phoneNumber,
-            Password = dto.Password, // hash before calling this
+            UserName = request.userName,
+            PhoneNumber = request.phoneNumber,
+            Password = request.Password, // hash before calling this
             RegisteredDate = DateTime.UtcNow
         };
 
         await _context.Users.AddAsync(user, ct);
         await _context.SaveChangesAsync(ct);
+
+        return MapToUserResponse(user);
     }
 
-    public async Task<UserEntity?> GetUserByPhoneAsync(string phone, CancellationToken ct = default)
-    {
-        return await _context.Users
-            .FirstOrDefaultAsync(u => u.PhoneNumber == phone, ct);
-    }
-
-    public async Task SetProfileAsync(Guid userId, UserProfileRequest request, CancellationToken ct = default)
+    public async Task<UserProfileResponse> SetProfileAsync(Guid userId, UserProfileRequest request, CancellationToken ct = default)
     {
         var user = await _context.Users
             .Include(u => u.Profiles)
@@ -47,7 +59,7 @@ public class AuthRepository : IAuthRepository
         foreach (var p in user.Profiles.Where(p => p.IsActive))
             p.IsActive = false;
 
-        user.Profiles.Add(new UserProfile
+        var newProfile = new UserProfile
         {
             ProfileId = Guid.NewGuid(),
             UserId = userId,
@@ -56,8 +68,41 @@ public class AuthRepository : IAuthRepository
             AvatarUrl = request.AvatarUrl,
             IsActive = true,
             CreatedAt = DateTime.UtcNow
-        });
+        };
 
+        user.Profiles.Add(newProfile);
         await _context.SaveChangesAsync(ct);
+
+        return MapToUserProfileResponse(newProfile);
+    }
+
+    public async Task<bool> ExistsAsync(Guid id, CancellationToken ct = default)
+    {
+        return await _context.Users.AnyAsync(u => u.UserId == id, ct);
+    }
+
+    private static UserResponse MapToUserResponse(UserEntity user)
+    {
+        return new UserResponse
+        {
+            UserId = user.UserId,
+            UserName = user.UserName,
+            PhoneNumber = user.PhoneNumber,
+            RegisteredDate = user.RegisteredDate
+        };
+    }
+
+    private static UserProfileResponse MapToUserProfileResponse(UserProfile profile)
+    {
+        return new UserProfileResponse
+        {
+            ProfileId = profile.ProfileId,
+            UserId = profile.UserId,
+            DisplayName = profile.DisplayName,
+            Bio = profile.Bio,
+            AvatarUrl = profile.AvatarUrl,
+            IsActive = profile.IsActive,
+            CreatedAt = profile.CreatedAt
+        };
     }
 }

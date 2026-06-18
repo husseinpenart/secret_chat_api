@@ -1,4 +1,6 @@
-﻿namespace secre_chat_api.chat.Domain.DTOS.UserInfoDtos.ResponseDto
+﻿using secre_chat_api.chat.Domain.Entities;
+
+namespace secre_chat_api.chat.Domain.DTOS.UserInfoDtos.ResponseDto
 {
     public class ChatResponse
     {
@@ -6,7 +8,7 @@
         public string? Title { get; set; }
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
-        public ICollection<ChatParticipantDtos> Participants { get; set; } = new List<ChatParticipantDtos>();
-        public ICollection<MessageDtos> Messages { get; set; } = new List<MessageDtos>();
+        public ICollection<ChatParticipantRequest> Participants { get; set; } = new List<ChatParticipantRequest>();
+        public ICollection<MessageRequest> Messages { get; set; } = new List<MessageRequest>();
     }
 }

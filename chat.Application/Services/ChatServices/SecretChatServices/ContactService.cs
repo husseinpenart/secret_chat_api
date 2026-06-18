@@ -1,5 +1,4 @@
-﻿using secre_chat_api.chat.Application.Repositories.ContactRepository;
-using secre_chat_api.chat.Domain.DTOS.ContactDtos;
+﻿using secre_chat_api.chat.Domain.DTOS;
 using secre_chat_api.chat.Infstructure.Repository.ChatRepository.ISecretChatRepositries;
 
 namespace secre_chat_api.chat.Application.Services.ContactService
@@ -9,7 +8,7 @@ namespace secre_chat_api.chat.Application.Services.ContactService
         private readonly IContactRepository _repo;
         public ContactService(IContactRepository repo) => _repo = repo;
 
-        public async Task<(bool success, string message, ContactResponseDto? Data)> AddContactAsync(ContactRequestDto dto, Guid userId)
+        public async Task<(bool success, string message, ContactResponse? Data)> AddContactAsync(ContactRequest dto, Guid userId)
         {
             var entity = await _repo.AddAsync(dto, userId);
             if (entity is null) return (false, "Failed to add contact.", null);
@@ -28,7 +27,7 @@ namespace secre_chat_api.chat.Application.Services.ContactService
             return result ? (true, "Contact blocked.") : (false, "Failed or unauthorized.");
         }
 
-        public async Task<(bool success, string message, IEnumerable<ContactResponseDto>? Data)> GetContactsAsync(Guid userId)
+        public async Task<(bool success, string message, IEnumerable<ContactResponse>? Data)> GetContactsAsync(Guid userId)
         {
             var data = await _repo.GetByUserIdAsync(userId);
             return (true, "OK", data);

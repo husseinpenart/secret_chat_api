@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using secre_chat_api.chat.Application.MiddleWares;
 using secre_chat_api.chat.Domain.DTOS;
 using secre_chat_api.chat.Domain.Entities;
 using secre_chat_api.chat.Infstructure.Repository.ChatRepository.ISecretChatRepositries;
@@ -7,9 +8,9 @@ namespace secre_chat_api.chat.Infrastructure.Persistence.Repositories;
 
 public class ChannelMemberRepository : IChannelMemberRepository
 {
-    private readonly ChatDbContext _context;
+    private readonly AppDbContext _context;
 
-    public ChannelMemberRepository(ChatDbContext context)
+    public ChannelMemberRepository(AppDbContext context)
     {
         _context = context;
     }
@@ -78,8 +79,24 @@ public class ChannelMemberRepository : IChannelMemberRepository
 
         return await GetByIdAsync(request.ChannelId, userId, ct)
             ?? throw new InvalidOperationException("Failed to add member");
-    }
 
+    }
+    public async Task<ChannelMemberResponse> AddAsync(ChannelMemberRequest request, CancellationToken ct = default)
+    {
+        var member = new ChannelMemberEntity
+        {
+            ChannelId = request.ChannelId,
+            UserId = request.UserId,
+            IsAdmin = request.IsAdmin,
+            JoinedAt = DateTime.UtcNow
+        };
+
+        await _context.ChannelMembers.AddAsync(member, ct);
+        await _context.SaveChangesAsync(ct);
+
+        return await GetByIdAsync(request.ChannelId, request.UserId, ct)
+            ?? throw new InvalidOperationException("Failed to add member");
+    }
     public async Task UpdateAdminStatusAsync(Guid channelId, Guid userId, bool isAdmin, CancellationToken ct = default)
     {
         var member = await _context.ChannelMembers

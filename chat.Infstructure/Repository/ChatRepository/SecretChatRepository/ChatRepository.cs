@@ -1,12 +1,13 @@
-﻿using secre_chat_api.chat.Domain.DTOS;
+﻿using secre_chat_api.chat.Application.MiddleWares;
+using secre_chat_api.chat.Domain.DTOS;
 using secre_chat_api.chat.Domain.Entities;
 using secre_chat_api.chat.Infstructure.Repository.ChatRepository.ISecretChatRepositries;
 
 public class ChatRepository : IChatRepository
 {
-    private readonly ChatDbContext _context;
+    private readonly AppDbContext _context;
 
-    public ChatRepository(ChatDbContext context)
+    public ChatRepository(AppDbContext context)
     {
         _context = context;
     }
