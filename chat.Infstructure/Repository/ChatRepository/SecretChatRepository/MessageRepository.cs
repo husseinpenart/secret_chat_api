@@ -95,13 +95,22 @@ public class MessageRepository : IMessageRepository
             ?? throw new InvalidOperationException("Failed to send message");
     }
 
-    public async Task SoftDeleteAsync(Guid id, CancellationToken ct = default)
+    public async Task<MessageResponse?> EditAsync(Guid id, string newContent, Guid requesterId, CancellationToken ct = default)
     {
-        var message = await _context.Messages.FindAsync(new object[] { id }, ct);
-        if (message != null)
-        {
-            message.IsDeleted = true;
-            await _context.SaveChangesAsync(ct);
-        }
+        var message = await _context.Messages.FirstOrDefaultAsync(m => m.MessageId == id && m.SenderId == requesterId, ct);
+        if (message is null) return null;
+        message.Content = newContent;
+        message.EditedAt = DateTime.UtcNow;
+        await _context.SaveChangesAsync(ct);
+        return await GetByIdAsync(id, ct);
+    }
+
+    public async Task<bool> SoftDeleteAsync(Guid id, Guid requesterId, CancellationToken ct = default)
+    {
+        var message = await _context.Messages.FirstOrDefaultAsync(m => m.MessageId == id && m.SenderId == requesterId, ct);
+        if (message is null) return false;
+        message.IsDeleted = true;
+        await _context.SaveChangesAsync(ct);
+        return true;
     }
 }

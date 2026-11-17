@@ -7,6 +7,7 @@ using secre_chat_api.chat.Application.Services.ContactService;
 using secre_chat_api.chat.Application.Services.MessageService;
 using secre_chat_api.chat.Infrastructure.Persistence.Repositories;
 using secre_chat_api.chat.Infstructure.Repository.ChatRepository.ISecretChatRepositries;
+using secre_chat_api.chat.Application.Services;
 
 namespace secre_chat_api.chat.Application.Extenstions
 {
@@ -27,6 +28,8 @@ namespace secre_chat_api.chat.Application.Extenstions
             services.AddScoped<IChatService, ChatService>();
             services.AddScoped<IChatParticipantService, ChatParticipantService>();
             services.AddScoped<IContactService, ContactService>();
+            services.AddDataProtection();
+            services.AddSingleton<IMessageCryptoService, MessageCryptoService>();
 
 
             return services;

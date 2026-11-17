@@ -10,8 +10,8 @@ namespace secre_chat_api.chat.Application.Services.ChatParticipantService
 
         public async Task<(bool success, string message)> AddParticipantAsync(Guid chatId, Guid userId, Guid requesterId)
         {
-            var result = await _repo.AddAsync(chatId, userId, requesterId);
-            return result ? (true, "Participant added.") : (false, "Failed or unauthorized.");
+            var result = await _repo.AddAsync(new ChatParticipantRequest { ChatId = chatId, UserId = userId }, requesterId);
+            return result is not null ? (true, "Participant added.") : (false, "Failed or unauthorized.");
         }
 
         public async Task<(bool success, string message)> RemoveParticipantAsync(Guid chatId, Guid userId, Guid requesterId)
@@ -22,8 +22,8 @@ namespace secre_chat_api.chat.Application.Services.ChatParticipantService
 
         public async Task<(bool success, string message)> UpdateAdminStatusAsync(Guid chatId, Guid userId, bool isAdmin, Guid requesterId)
         {
-            var result = await _repo.UpdateAdminStatusAsync(chatId, userId, isAdmin, requesterId);
-            return result ? (true, "Admin status updated.") : (false, "Failed or unauthorized.");
+            await _repo.UpdateAdminStatusAsync(chatId, userId, isAdmin, requesterId);
+            return (true, "Admin status updated.");
         }
 
         public async Task<(bool success, string message, IEnumerable<ChatParticipantResponse>? Data)> GetParticipantsAsync(Guid chatId)

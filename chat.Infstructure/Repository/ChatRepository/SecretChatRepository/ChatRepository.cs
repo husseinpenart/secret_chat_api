@@ -20,7 +20,7 @@ public class ChatRepository : IChatRepository
             .Where(c => c.ChatId == id)
             .Select(c => new ChatResponse
             {
-                Id = c.ChatId,
+                ChatId = c.ChatId,
                 Type = c.Type,
                 Title = c.Title,
                 CreatedAt = c.CreatedAt,
@@ -42,7 +42,7 @@ public class ChatRepository : IChatRepository
             .Where(c => c.Participants.Any(p => p.UserId == userId))
             .Select(c => new ChatResponse
             {
-                Id = c.ChatId,
+                ChatId = c.ChatId,
                 Type = c.Type,
                 Title = c.Title,
                 CreatedAt = c.CreatedAt,
@@ -56,7 +56,7 @@ public class ChatRepository : IChatRepository
             .ToListAsync(ct);
     }
 
-    public async Task<ChatResponse> AddAsync(ChatRequest request, CancellationToken ct = default)
+    public async Task<ChatResponse> AddAsync(ChatRequest request, Guid creatorId, CancellationToken ct = default)
     {
         var chat = new ChatEntity   // was: ChatDtos
         {
@@ -67,7 +67,7 @@ public class ChatRepository : IChatRepository
         await _context.Chats.AddAsync(chat, ct);
         await _context.SaveChangesAsync(ct);
 
-        foreach (var participantId in request.ParticipantIds)
+        foreach (var participantId in request.ParticipantIds.Append(creatorId).Distinct())
         {
             _context.ChatParticipants.Add(new ChatParticipantEntity   // was: ChatParticipantDtos
             {
@@ -80,6 +80,9 @@ public class ChatRepository : IChatRepository
         return await GetByIdAsync(chat.ChatId, ct)
             ?? throw new InvalidOperationException("Failed to create chat");
     }
+
+    public Task<GroupProfileResponse> SetGroupProfileAsync(Guid chatId, GroupProfileRequest request, Guid ownerId, CancellationToken ct = default)
+        => throw new NotSupportedException("Group profile persistence is not configured in this schema.");
 
     public async Task DeleteAsync(Guid id, CancellationToken ct = default)
     {
